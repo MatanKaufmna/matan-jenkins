@@ -6,6 +6,7 @@ pipeline {
             steps {
                 sh 'echo building...'
                 sh 'matan-test'
+                sh ' test2'
             }
         }
     }
