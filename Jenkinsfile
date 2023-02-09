@@ -4,10 +4,11 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo building 1...'
-                sh 'matan-test'
+                sh 'echo building ...'
+                sh 'matan-test1'
                 sh ' test2'
                 sh ' test 3'
+
             }
         }
     }
