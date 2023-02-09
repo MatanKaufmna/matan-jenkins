@@ -9,6 +9,7 @@ pipeline {
                 docker build -t matan-jenkins .
                 docker tag matan-jenkins:latest 700935310038.dkr.ecr.us-west-2.amazonaws.com/matan-jenkins:latest
                 docker push 700935310038.dkr.ecr.us-west-2.amazonaws.com/matan-jenkins:latest
+                '''
             }
         }
     }
