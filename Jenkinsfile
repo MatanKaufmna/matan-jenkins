@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        REGISTRY_URL = '700935310038.dkr.ecr.us-west-2.amazonaws.com'
+        IMAGE_NAME = ' matan-jenkins '
+    }
+
     stages {
         stage('Build') {
             steps {
