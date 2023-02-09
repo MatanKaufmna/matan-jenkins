@@ -16,6 +16,11 @@ pipeline {
                 docker push 700935310038.dkr.ecr.us-west-2.amazonaws.com/matan-jenkins:latest
                 '''
             }
+            post {
+                always {
+                    sh 'docker image prune -a --filter "until=7d"'
+                }
+            }
         }
     }
 }
