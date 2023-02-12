@@ -10,10 +10,11 @@ pipeline {
         stage('Build') {
             steps {
                 sh '''
+
                 aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin $REGISTRY_URL
-                docker build -t $IMAGE_NAME .
-                docker tag $IMAGE_NAME:latest $REGISTRY_URL /$IMAGE_NAME:latest
-                docker push $REGISTRY_URL/$IMAGE_NAME:latest
+                docker build -t $IMAGE_NAME:$BUILD_NUMBER .
+                docker tag $IMAGE_NAME:$BUILD_NUMBER $REGISTRY_URL /$IMAGE_NAME:latest
+                docker push $REGISTRY_URL/$IMAGE_NAME:$BUILD_NUMBER
                 '''
             }
             post {
