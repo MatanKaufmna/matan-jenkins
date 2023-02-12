@@ -10,6 +10,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh 'echo $YOLO5_IMAGE_URL'
+                sh '# kubectl apply -f ....'
 
             }
         }
