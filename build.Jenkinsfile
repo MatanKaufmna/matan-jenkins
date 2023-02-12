@@ -16,10 +16,20 @@ pipeline {
                 docker tag $IMAGE_NAME:$BUILD_NUMBER $REGISTRY_URL /$IMAGE_NAME:latest
                 docker push $REGISTRY_URL/$IMAGE_NAME:$BUILD_NUMBER
                 '''
-
+            }
+            post {
+                always {
+                    sh 'docker image prune -a --filter "until=240h" --force '
                 }
             }
         }
     }
 }
 
+stage('Trigger Deploy') {
+    steps {
+        build job: 'AppDeploy', wait: false, parameters: [
+            string(name: 'YOLO5_IMAGE_URL', value: "700935310038.dkr.ecr.us-west-2.amazonaws.com")
+        ]
+    }
+}
