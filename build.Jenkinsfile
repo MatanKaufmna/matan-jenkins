@@ -29,7 +29,7 @@ pipeline {
 stage('Trigger Deploy') {
     steps {
         build job: 'AppDeploy', wait: false, parameters: [
-            string(name: 'YOLO5_IMAGE_URL', value: "700935310038.dkr.ecr.us-west-2.amazonaws.com")
+            string(name: '$ REGISTRY_URL', value: "700935310038.dkr.ecr.us-west-2.amazonaws.com")
         ]
     }
 }
