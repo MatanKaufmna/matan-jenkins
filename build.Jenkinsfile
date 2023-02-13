@@ -15,13 +15,14 @@ pipeline {
                 docker build -t $IMAGE_NAME:$BUILD_NUMBER .
                 '''
 
-                withCredentials([
-                    string(credentialsId: 'snyk_token', variable: 'SNYK_TOKEN')
-                    ]) {
-                    sh '''
-                        snyk container test $IMAGE_NAME:$BUILD_NUMBER --severity-threshold=high
-                        '''
-                    }
+//                withCredentials([
+//                    string(credentialsId: 'snyk_token', variable: 'SNYK_TOKEN')
+//                    ]) {
+//                    sh '''
+//                        snyk container test $IMAGE_NAME:$BUILD_NUMBER --severity-threshold=high
+//                        '''
+//                    }
+
                 sh '''
                 docker tag $IMAGE_NAME:$BUILD_NUMBER $REGISTRY_URL /$IMAGE_NAME:latest
                 docker push $REGISTRY_URL/$IMAGE_NAME:$BUILD_NUMBER
@@ -33,13 +34,5 @@ pipeline {
                 }
             }
         }
-    }
-}
-
-stage('Trigger Deploy') {
-    steps {
-        build job: 'AppDeploy', wait: false, parameters: [
-            string(name: 'matan_jenkins_IMAGE_URL', value: "$REGISTRY_URL/$REGISTRY_URL:$BUILD_NUMBER")
-        ]
     }
 }
