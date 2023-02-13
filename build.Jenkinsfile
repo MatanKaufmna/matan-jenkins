@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    options {
+        timeout(time: 1, unit: 'HOURS')
+        timestamps()
+    }
+
     environment {
         REGISTRY_URL = '700935310038.dkr.ecr.us-west-2.amazonaws.com'
         IMAGE_NAME = 'matan-jenkins'
@@ -34,5 +39,12 @@ pipeline {
                 }
             }
         }
+    }
+}
+stage('Trigger Deploy') {
+    steps {
+        build job: 'AppDeploy', wait: false, parameters: [
+            string(name: 'matan_jenkins_IMAGE_URL', value: "$REGISTRY_URL/$REGISTRY_URL:$BUILD_NUMBER")
+        ]
     }
 }
