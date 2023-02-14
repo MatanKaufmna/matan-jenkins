@@ -2,6 +2,8 @@ pipeline {
     agent any
 
 
+    }
+
     environment {
         REGISTRY_URL = '700935310038.dkr.ecr.us-west-2.amazonaws.com'
         IMAGE_NAME = 'matan-jenkins'
@@ -29,15 +31,14 @@ pipeline {
                 docker push $REGISTRY_URL/$IMAGE_NAME:$BUILD_NUMBER
                 '''
             }
-            post {
-                always {
-                    sh 'docker image prune -a --filter "until=240h" --force '
+    post {
+        always {
+                sh 'docker image prune -a --filter "until=240h" --force '
                 }
             }
         }
     }
-
-
+}
 
     stage('Trigger Deploy') {
         steps {
@@ -45,4 +46,4 @@ pipeline {
             string(name: 'matan_jenkins_IMAGE_URL', value: "$REGISTRY_URL/$REGISTRY_URL:$BUILD_NUMBER")
         ]
     }
-  }
+}
