@@ -43,7 +43,7 @@ pipeline {
     stage('Trigger Deploy') {
         steps {
          build job: 'AppDeploy', wait: false, parameters: [
-            string(name: 'matan_jenkins_IMAGE_URL', value: "$REGISTRY_URL/$REGISTRY_URL:$BUILD_NUMBER")
+            string(name: '$REGISTRY_URL', value: "$REGISTRY_URL/$REGISTRY_URL:$BUILD_NUMBER")
         ]
     }
 }
