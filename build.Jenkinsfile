@@ -45,4 +45,3 @@ pipeline {
             string(name: 'matan_jenkins_IMAGE_URL', value: "$REGISTRY_URL/$REGISTRY_URL:$BUILD_NUMBER")
         ]
     }
-}
