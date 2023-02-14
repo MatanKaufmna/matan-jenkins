@@ -43,7 +43,7 @@ pipeline {
     stage('Trigger Deploy') {
         steps {
          build job: 'AppDeploy', wait: false, parameters: [
-            string(name: '$REGISTRY_URL', value: "$REGISTRY_URL/$REGISTRY_URL:$BUILD_NUMBER")
+            string(name: 'YOLO5_iMAGE_URL', value: "$REGISTRY_URL/$REGISTRY_URL:$BUILD_NUMBER")
         ]
     }
 }

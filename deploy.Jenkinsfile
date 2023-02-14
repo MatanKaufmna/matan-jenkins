@@ -2,14 +2,14 @@ pipeline {
     agent any
 
     parameters {
-     parameters { string(name: '700935310038.dkr.ecr.us-west-2.amazonaws.com', defaultValue: '', description: '') }
+     parameters { string(name: 'YOLO5_iMAGE_URL', defaultValue: '', description: '') }
 
     }
 
     stages {
         stage('Deploy') {
             steps {
-                sh 'echo 700935310038.dkr.ecr.us-west-2.amazonaws.com'
+                sh '$YOLO5_iMAGE_URL'
                 sh '# kubectl apply -f ....'
 
             }
