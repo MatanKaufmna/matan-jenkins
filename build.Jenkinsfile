@@ -1,10 +1,7 @@
 pipeline {
     agent any
 
-    options {
-        timeout(time: 1, unit: 'HOURS')
-        timestamps()
-    }
+
 
     environment {
         REGISTRY_URL = '700935310038.dkr.ecr.us-west-2.amazonaws.com'
@@ -40,6 +37,12 @@ pipeline {
             }
         }
 
-
+stage('Trigger Deploy') {
+            steps {
+                build job: 'AppDeploy', wait: false, parameters: [
+                    string(name: 'YOLO5_IMAGE_URL', value: "$REGISTRY_URL/$IMAGE_NAME:$BUILD_NUMBER")
+                ]
+            }
+        }
     }
 }
