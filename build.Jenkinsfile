@@ -40,12 +40,6 @@ pipeline {
             }
         }
 
-        stage('Trigger Deploy') {
-            steps {
-                build job: 'AppDeploy', wait: false, parameters: [
-                    string(name: 'YOLO5_IMAGE_URL', value: "$REGISTRY_URL/$IMAGE_NAME:$BUILD_NUMBER")
-                ]
-            }
-        }
+
     }
 }
