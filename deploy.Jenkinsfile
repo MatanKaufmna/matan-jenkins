@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                sh 'echo $YOLO5_IMAGE_URL'
+                sh 'echo $YOLO5_IMAGE_URL '
             }
         }
     }

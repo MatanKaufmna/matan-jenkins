@@ -4,12 +4,18 @@ pipeline {
     stages {
         stage('Unittest') {
             steps {
-                echo "testing"
+            sh'''
+            pip3 install -r requirements.txt
+            python3 -m pytest --junitxml results.xml tests
+            '''
             }
         }
         stage('Lint') {
             steps {
                 echo "linting"
+                sh'''
+                python3 -m pylint *.py
+                '''
             }
         }
         stage('Functional test') {
