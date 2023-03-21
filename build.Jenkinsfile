@@ -4,7 +4,7 @@ pipeline {
         image '700935310038.dkr.ecr.us-west-2.amazonaws.com/matan-jenkins-agent:1'
         args  '--user root -v /var/run/docker.ck:/var/run/docker.sock'
         }
-    }
+   }
 
 
 
