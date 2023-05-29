@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         stage('Install dependencies') {
-            steps{
+            steps {
                 sh '''
                 echo "Build Dependencies"
                 pip3 install build twine
