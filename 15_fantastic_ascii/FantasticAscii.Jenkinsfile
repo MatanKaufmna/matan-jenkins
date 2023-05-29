@@ -3,10 +3,9 @@ pipeline {
 
     stages {
         stage('Install dependencies') {
-            step{
+            steps{
                 sh '''
                 echo "Build Dependencies"
-
                 pip3 install build twine
 
                 '''
