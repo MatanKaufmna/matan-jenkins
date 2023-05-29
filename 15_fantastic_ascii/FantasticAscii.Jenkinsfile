@@ -14,6 +14,7 @@ pipeline {
 
         stage('Build') {
             steps {
+                cleanWs()
                  
                 sh '''
                 echo "Nexus Integration Build"
