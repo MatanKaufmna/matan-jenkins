@@ -17,7 +17,7 @@ pipeline {
                  
                 sh '''
                 echo "Nexus Integration Build"
-                cd matan-jenkins/15_fantastic_ascii
+                cd 15_fantastic_ascii
                 python3 -m build
                 '''
             }
@@ -28,7 +28,7 @@ pipeline {
               ]) {
 
                 sh '''
-                cd matan-jenkins/15_fantastic_ascii
+                cd 15_fantastic_ascii
                 echo $USERNAME
                 echo $PASSWORD
                 sed -i -e "s/<username>/$USERNAME/g" .pypirc
