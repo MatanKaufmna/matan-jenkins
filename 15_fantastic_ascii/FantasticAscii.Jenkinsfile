@@ -1,18 +1,16 @@
 pipeline {
     agent {
-        docker {
-        image '700935310038.dkr.ecr.us-west-2.amazonaws.com/matan-jenkinsagent-cicd:1'
-            args  '--user root -v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+        any {
+
 
     stages {
         stage('Install dependencies') {
             steps {
                 sh '''
                 echo "Build Dependencies"
-                cd matan-jenkins/15_fantastic_ascii
-                pip3 install -r requirements.txt --admin
+                cd 15_fantastic_ascii
+                pip3 install build twine
+                pip3 install urllib3==1.26.6
 
                 '''
             }
