@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+        }
+    }
 
     stages {
         stage('Install dependencies') {
