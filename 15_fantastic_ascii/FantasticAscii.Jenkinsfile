@@ -11,8 +11,8 @@ pipeline {
             steps {
                 sh '''
                 echo "Build DependencieS"
-                pip3 install build twine
-                pip3 install urllib3==1.26.6
+                pip install build twine
+                pip install urllib3==1.26.6
 
                 '''
             }
