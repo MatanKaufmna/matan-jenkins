@@ -7,6 +7,7 @@ pipeline {
                 sh '''
                 echo "Build Dependencies"
                 pip3 install build twine
+                pip3 install urllib3==1.26.26
 
                 '''
             }
