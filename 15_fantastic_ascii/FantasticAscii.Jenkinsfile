@@ -10,6 +10,7 @@ pipeline {
                 cd 15_fantastic_ascii
                 pip3 install build twine
                 pip3 install urllib3==1.26.6
+                pip3 install pandas
 
                 '''
             }
