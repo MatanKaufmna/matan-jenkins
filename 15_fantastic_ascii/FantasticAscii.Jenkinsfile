@@ -1,13 +1,17 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+        image '700935310038.dkr.ecr.us-west-2.amazonaws.com/matan-jenkinsagent-cicd:1'
+            args  '--user root -v /var/run/docker.sock:/var/run/docker.sock'
+        }
+    }
 
     stages {
         stage('Install dependencies') {
             steps {
                 sh '''
                 echo "Build Dependencies"
-                pip3 install build twine
-                pip3 install urllib3==1.26.6
+                pip install -r requirements.txt --user
 
                 '''
             }
@@ -16,7 +20,7 @@ pipeline {
         stage('Build') {
             steps {
 
-                 
+
                 sh '''
                 echo "Nexus Integration Build"
                 cd 15_fantastic_ascii
@@ -41,6 +45,9 @@ pipeline {
             }
         }
     }
-
-
+    post {
+        cleanup {
+            cleanWs()
+        }
+    }
 }
