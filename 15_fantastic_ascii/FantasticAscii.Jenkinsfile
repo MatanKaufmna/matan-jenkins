@@ -12,7 +12,7 @@ pipeline {
                 sh '''
                 echo "Build Dependencies"
                 cd 15_fantastic_ascii
-                pip3 install -r requirements.txt --user
+                pip install -r requirements.txt --admin
 
                 '''
             }
