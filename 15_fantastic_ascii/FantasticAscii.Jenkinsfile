@@ -26,15 +26,21 @@ pipeline {
         }
         stage('Publish') {
            steps {
-                withCredentials([usernamePassword(ID:'matan_nexus', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
+                withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
               ]) {
 
                 sh '''
                 cd 15_fantastic_ascii
+                echo $USERNAME
+                echo $PASSWORD
+                sed -i -e "s/<username>/$USERNAME/g" .pypirc
+                sed -i -e "s/<password>/$PASSWORD/g" .pypirc
                 python3 -m twine upload --config-file .pypirc --repository pypi-hosted dist/*
                 '''
               }
             }
         }
     }
+
+
 }
