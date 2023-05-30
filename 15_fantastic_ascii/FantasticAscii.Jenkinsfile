@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Publish') {
            steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
+                withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'admin', passwordVariable: 'PASSWORD')
               ]) {
 
                 sh '''
