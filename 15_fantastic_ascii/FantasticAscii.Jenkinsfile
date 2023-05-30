@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Build Dependencies"
-                pip3 install -r requirements.txt --user
+                pip install -r requirements.txt --user
 
                 '''
             }
