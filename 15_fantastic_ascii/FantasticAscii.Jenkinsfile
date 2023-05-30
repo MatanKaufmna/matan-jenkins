@@ -5,7 +5,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 sh '''
-                echo "Build Dependencies"
+                echo "Build DependencieS"
                 pip3 install build twine
                 pip3 install urllib3==1.26.6
 
