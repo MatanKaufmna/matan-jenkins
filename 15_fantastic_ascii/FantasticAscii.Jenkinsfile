@@ -26,7 +26,7 @@ pipeline {
         }
         stage('Publish') {
            steps {
-                withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'admin', passwordVariable: 'PASSWORD')
+                withCredentials([usernamePassword(credentialsId:'matan_nexus', usernameVariable: 'admin', passwordVariable: 'PASSWORD')
               ]) {
 
                 sh '''
@@ -37,6 +37,4 @@ pipeline {
             }
         }
     }
-
-
 }
