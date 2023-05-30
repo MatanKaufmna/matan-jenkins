@@ -1,18 +1,13 @@
 pipeline {
-    agent {
-        docker {
-        image '700935310038.dkr.ecr.us-west-2.amazonaws.com/matan-jenkinsagent-cicd:1'
-            args  '--user root -v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any
 
     stages {
         stage('Install dependencies') {
             steps {
                 sh '''
                 echo "Build DependencieS"
-                sudo apt-get install twine
-                pip install urllib3==1.26.6
+                pip3 install build twine
+                pip3 install urllib3==1.26.6
 
                 '''
             }
