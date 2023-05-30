@@ -11,7 +11,7 @@ pipeline {
             steps {
                 sh '''
                 echo "Build DependencieS"
-                pip install build twine
+                sudo apt-get install twine
                 pip install urllib3==1.26.6
 
                 '''
