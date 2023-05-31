@@ -7,7 +7,7 @@ pipeline {
             steps {
                 script {
                     sh ''' cd 15_fantastic_ascii '''
-                    def nexusUrl = 'http://35.90.150.243:8081/#browse/welcome'
+                    def nexusUrl = 'http://35.90.150.243:8081/repository/pypi-hosted/'
                     def nexusCredentialsId = 'matan_nexus'
 
                     withCredentials([usernamePassword(credentialsId: matan_nexus, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
@@ -15,8 +15,8 @@ pipeline {
                         echo "Build Dependencies"
 
                         '''
-                        sh ''' pip install --index-url=${http://35.90.150.243:8081/#browse/welcome} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user --upgrade pip '''
-                        sh ''' pip install --index-url=${http://35.90.150.243:8081/#browse/welcome} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user -r requirements.txt '''
+                        sh ''' pip install --index-url=${http://35.90.150.243:8081/repository/pypi-hosted/} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user --upgrade pip '''
+                        sh ''' pip install --index-url=${http://35.90.150.243:8081/repository/pypi-hosted/} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user -r requirements.txt '''
                     }
                 }
             }
@@ -27,7 +27,7 @@ pipeline {
 
 
                 sh '''
-                echo "Nexus Integration Buil"
+                echo "Nexus Integration Build"
                 cd 15_fantastic_ascii
                 python3 -m build
                 '''
