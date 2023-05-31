@@ -5,10 +5,7 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-                script {
 
-                    def nexusUrl = 'http://35.90.150.243:8081/repository/general-pypi/'
-                    def nexusCredentialsId = 'nexus'
 
                     withCredentials([usernamePassword(credentialsId: nexus, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh '''
