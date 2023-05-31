@@ -4,21 +4,12 @@ pipeline {
 
     stages {
         stage('Install dependencies') {
-            steps {
 
-
-                    withCredentials([usernamePassword(credentialsId: nexus, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh '''
                         echo "Build Dependencies"
                         cd 15_fantastic_ascii
 
                         '''
-                        sh ''' pip install --index-url=${http://35.90.150.243:8081/repository/general-pypi/} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user --upgrade pip '''
-                        sh ''' pip install --index-url=${http://35.90.150.243:8081/repository/general-pypi/} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user -r requirements.txt '''
-                    }
-                }
-            }
-        }
 
         stage('Build') {
             steps {
