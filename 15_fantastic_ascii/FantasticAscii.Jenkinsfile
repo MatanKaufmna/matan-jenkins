@@ -7,8 +7,7 @@ pipeline {
             steps {
                 script {
                     sh ''' cd 15_fantastic_ascii '''
-
-                    def nexusUrl = 'http://35.90.150.243:8081/repository/general-pypi/'
+                    def nexusUrl = 'http://35.90.150.243:8081/#browse/welcome'
                     def nexusCredentialsId = 'matan_nexus'
 
                     withCredentials([usernamePassword(credentialsId: matan_nexus, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
