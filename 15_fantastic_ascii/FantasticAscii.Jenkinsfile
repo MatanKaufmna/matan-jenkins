@@ -8,9 +8,9 @@ pipeline {
                 script {
 
                     def nexusUrl = 'http://35.90.150.243:8081/repository/general-pypi/'
-                    def nexusCredentialsId = 'matan_nexus'
+                    def nexusCredentialsId = 'nexus'
 
-                    withCredentials([usernamePassword(credentialsId: matan_nexus, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    withCredentials([usernamePassword(credentialsId: nexus, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh '''
                         echo "Build Dependencies"
                         cd 15_fantastic_ascii
