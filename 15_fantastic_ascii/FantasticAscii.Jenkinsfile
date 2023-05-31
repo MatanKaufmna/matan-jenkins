@@ -10,7 +10,7 @@ pipeline {
                     def nexusCredentialsId = 'matan_nexus'
 
                     withCredentials([usernamePassword(credentialsId: nexusCredentialsId, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-                        sh ''' cd 115_fantastic_ascii '''
+                        sh ''' cd 15_fantastic_ascii '''
                         sh ''' pip install --index-url=${nexusUrl} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user --upgrade pip '''
                         sh ''' pip install --index-url=${nexusUrl} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user -r requirements.txt '''
                     }
