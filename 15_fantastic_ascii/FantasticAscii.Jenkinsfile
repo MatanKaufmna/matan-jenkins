@@ -6,7 +6,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    def nexusUrl = 'http://35.90.150.243:8081/repository/general-pypi/'
+                    def nexusUrl = 'http://35.90.150.243:8081/repository/pypi-hosted/'
                     def nexusCredentialsId = 'matan_nexus'
 
                     withCredentials([usernamePassword(credentialsId: matan_nexus, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
