@@ -5,16 +5,16 @@ pipeline {
     stages {
         stage('Install dependencies') {
             steps {
-
+                script {
                     def nexusUrl = 'http://35.90.150.243:8081/repository/pypi-hosted/'
                     def nexusCredentialsId = 'matan_nexus'
 
                     withCredentials([usernamePassword(credentialsId: matan_nexus, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 
-                        sh ''' pip install --index-url=${http://35.90.150.243:8081/repository/general-pypi/} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user --upgrade pip '''
-                        sh ''' pip install --index-url=${http://35.90.150.243:8081/repository/general-pypi/} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user -r requirements.txt '''
+                        sh ''' pip install --index-url=${nexusUrl} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user --upgrade pip '''
+                        sh ''' pip install --index-url=${nexusUrl} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user -r requirements.txt '''
                     }
-
+                }
             }
         }
 
