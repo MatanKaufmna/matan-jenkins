@@ -6,8 +6,10 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
-                    sh ''' echo "Build Dependencies" '''
-                    sh ''' cd 15_fantastic_ascii '''
+                    sh '''
+                    echo "Build Dependencies"
+                    cd 15_fantastic_ascii
+                    '''
                     def nexusUrl = 'http://35.90.150.243:8081/repository/general-pypi/'
                     def nexusCredentialsId = 'matan-nexus'
 
