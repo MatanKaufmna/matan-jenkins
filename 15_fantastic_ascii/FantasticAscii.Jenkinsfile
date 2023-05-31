@@ -6,6 +6,7 @@ pipeline {
         stage('Install dependencies') {
             steps {
                 script {
+                    sh "cd 15_fantastic_ascii"
 
                     def nexusUrl = 'http://35.90.150.243:8081/repository/general-pypi/'
                     def nexusCredentialsId = 'matan_nexus'
@@ -13,7 +14,7 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: matan_nexus, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh '''
                         echo "Build Dependencies"
-                        cd 15_fantastic_ascii
+
                         '''
                         sh ''' pip install --index-url=${http://35.90.150.243:8081/#browse/welcome} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user --upgrade pip '''
                         sh ''' pip install --index-url=${http://35.90.150.243:8081/#browse/welcome} --trusted-host http://35.90.150.243:8081/repository/general-pypi/' --user -r requirements.txt '''
