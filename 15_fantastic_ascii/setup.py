@@ -8,6 +8,7 @@ setup_args = dict(
     install_requires=[
         'requests',
         'importlib-metadata; python_version == "3.8"',
+        'pip'
     ],
     author='Matt',
     author_email='example@example.com'
