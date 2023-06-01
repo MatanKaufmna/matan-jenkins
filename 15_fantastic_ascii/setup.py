@@ -32,6 +32,7 @@ yt_dlp_package_setup_args = dict(
     license='MIT',
     install_requires=[
         'yt-dlp>=2023.2.17',
+        'pyTelegramBotAPI',
     ],
     author='Matt',
     author_email='example@example.com'
@@ -49,20 +50,10 @@ loguru_package_setup_args = dict(
     author_email='example@example.com'
 )
 
-pytelegrambotapi_package_setup_args = dict(
-    name='pytelegrambotapi_package',
-    version='1.0.0',
-    description='pyTelegramBotAPI Package',
-    license='MIT',
-    install_requires=[
-        'pyTelegramBotAPI',
-    ],
-    author='Matt',
-    author_email='example@example.com'
-)
+
 
 setup(**fantastic_ascii_setup_args)
 setup(**boto3_package_setup_args)
 setup(**yt_dlp_package_setup_args)
 setup(**loguru_package_setup_args)
-setup(**pytelegrambotapi_package_setup_args)
+
