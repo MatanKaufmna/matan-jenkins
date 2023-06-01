@@ -52,7 +52,7 @@ logger_package_setup_args = dict(
 
 pytelegrambotapi_package_setup_args = dict(
     name='pytelegrambotapi_package',
-    version='1.0.0',
+    version='4.12.0',
     description='pyTelegramBotAPI Package',
     license='MIT',
     install_requires=[
