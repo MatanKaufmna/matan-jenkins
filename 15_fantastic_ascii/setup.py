@@ -1,4 +1,6 @@
 from setuptools import setup, find_packages
+from loguru import logger
+import boto3
 
 fantastic_ascii_setup_args = dict(
     name='fantastic_ascii',
