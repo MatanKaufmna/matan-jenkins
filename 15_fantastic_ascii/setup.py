@@ -37,8 +37,8 @@ yt_dlp_package_setup_args = dict(
     author_email='example@example.com'
 )
 
-loguru_package_setup_args = dict(
-    name='loguru_package',
+logger_package_setup_args = dict(
+    name='logger',
     version='1.0.0',
     description='Loguru Package',
     license='MIT',
