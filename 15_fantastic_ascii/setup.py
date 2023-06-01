@@ -43,7 +43,7 @@ logger_package_setup_args = dict(
     description='Loguru Package',
     license='MIT',
     install_requires=[
-        'logger',
+        'pip',
     ],
     author='Matt',
     author_email='example@example.com'
