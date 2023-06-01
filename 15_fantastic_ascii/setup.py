@@ -50,10 +50,9 @@ loguru_package_setup_args = dict(
     author_email='example@example.com'
 )
 
-
-
-setup(**fantastic_ascii_setup_args)
-setup(**boto3_package_setup_args)
-setup(**yt_dlp_package_setup_args)
-setup(**loguru_package_setup_args)
+if __name__ == '__main__':
+    setup(**fantastic_ascii_setup_args)
+    setup(**boto3_package_setup_args)
+    setup(**yt_dlp_package_setup_args)
+    setup(**loguru_package_setup_args)
 
