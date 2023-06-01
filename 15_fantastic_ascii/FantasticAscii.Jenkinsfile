@@ -25,7 +25,7 @@ pipeline {
                 sh '''
                 echo "Nexus Integration Build"
                 cd 15_fantastic_ascii
-                python3 -m build setup.py
+                python3 -m build .
                 '''
             }
         }
