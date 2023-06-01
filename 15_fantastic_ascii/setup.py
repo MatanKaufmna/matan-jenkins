@@ -15,7 +15,7 @@ boto3_package_setup_args = dict(
 
 yt_dlp_package_setup_args = dict(
     name='yt_dlp_package',
-    version='1.0.0',
+    version='2023.2.17',
     description='yt-dlp Package',
     license='MIT',
     install_requires=[
