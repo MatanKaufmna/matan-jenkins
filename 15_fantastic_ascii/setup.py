@@ -40,10 +40,11 @@ yt_dlp_package_setup_args = dict(
 logger_package_setup_args = dict(
     name='logger',
     version='1.0.0',
-    description='Loguru Package',
+    description='logger Package',
     license='MIT',
     install_requires=[
         'pip',
+        'loguru'
     ],
     author='Matt',
     author_email='example@example.com'
