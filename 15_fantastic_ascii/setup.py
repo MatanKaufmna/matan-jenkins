@@ -15,7 +15,7 @@ fantastic_ascii_setup_args = dict(
 
 boto3_package_setup_args = dict(
     name='boto3_package',
-    version='1.0.0',
+    version='1.26.144',
     description='Boto3 Package',
     license='MIT',
     install_requires=[
