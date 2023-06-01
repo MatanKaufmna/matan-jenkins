@@ -24,7 +24,7 @@ pipeline {
                 sh '''
                 echo "Nexus Integration Build"
                 cd 15_fantastic_ascii
-                python3 -m pip install --upgrade pip setuptools wheel
+
                 python3 -m build .
                 '''
             }
