@@ -8,44 +8,10 @@ fantastic_ascii_setup_args = dict(
     install_requires=[
         'requests',
         'importlib-metadata; python_version == "3.8"',
-    ],
-    author='Matt',
-    author_email='example@example.com'
-)
-
-boto3_package_setup_args = dict(
-    name='boto3_package',
-    version='1.0.0',
-    description='Boto3 Package',
-    license='MIT',
-    install_requires=[
         'boto3',
-    ],
-    author='Matt',
-    author_email='example@example.com'
-)
-
-yt_dlp_package_setup_args = dict(
-    name='yt_dlp_package',
-    version='1.0.0',
-    description='yt-dlp Package',
-    license='MIT',
-    install_requires=[
         'yt-dlp>=2023.2.17',
-        'pyTelegramBotAPI',
-    ],
-    author='Matt',
-    author_email='example@example.com'
-)
-
-logger_package_setup_args = dict(
-    name='logger',
-    version='1.0.0',
-    description='logger Package',
-    license='MIT',
-    install_requires=[
-        'pip',
         'loguru'
+        'pyTelegramBotAPI',
     ],
     author='Matt',
     author_email='example@example.com'
@@ -55,7 +21,4 @@ logger_package_setup_args = dict(
 
 if __name__ == '__main__':
     setup(**fantastic_ascii_setup_args)
-    setup(**boto3_package_setup_args)
-    setup(**yt_dlp_package_setup_args)
-    setup(**logger_package_setup_args)
 
