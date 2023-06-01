@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 fantastic_ascii_setup_args = dict(
-    name='matan project',
+    name='fantastic_ascii',
     version='2.0.0',
     description='Fantastic ASCII',
     license='MIT',
@@ -17,7 +17,7 @@ fantastic_ascii_setup_args = dict(
     author_email='example@example.com'
 )
 
-)
+
 
 if __name__ == '__main__':
     setup(**fantastic_ascii_setup_args)
