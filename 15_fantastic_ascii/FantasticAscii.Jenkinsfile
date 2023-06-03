@@ -3,7 +3,7 @@ pipeline {
 
 
     stages {
-        stage('Install dependencies') {
+        stage('Install Dependencies') {
             steps {
                 script {
                     def nexusUrl = 'http://35.161.122.163:8081/repository/pypi-hosted/'
