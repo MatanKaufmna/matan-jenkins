@@ -6,13 +6,13 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 script {
-                    def nexusUrl = 'http://35.161.122.163:8081/repository/pypi-hosted/'
+                    def nexusUrl = 'http://54.245.51.148:8081/repository/pypi-hosted/'
                     def nexusCredentialsId = 'matan_nexus'
 
                     withCredentials([usernamePassword(credentialsId: nexusCredentialsId, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                         sh ''' cd 15_fantastic_ascii '''
-                        sh "pip install --index-url=${nexusUrl} --trusted-host http://35.161.122.163 --user --upgrade pip"
-                        sh "pip install --index-url=${nexusUrl} --trusted-host http://35.161.122.163 --user -r requirements.txt"
+                        sh "pip install --index-url=${nexusUrl} --trusted-host http://54.245.51.148 --user --upgrade pip"
+                        sh "pip install --index-url=${nexusUrl} --trusted-host http://54.245.51.148 --user -r requirements.txt"
                     }
                 }
             }
